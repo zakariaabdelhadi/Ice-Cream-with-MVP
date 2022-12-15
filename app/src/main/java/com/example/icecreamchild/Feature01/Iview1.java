@@ -12,4 +12,6 @@ public interface Iview1 {
     void intializeStationslist(List<String> names);
 
     void setVarianceAndColor(int i, int i1);
+
+    void displayErrorMessage();
 }

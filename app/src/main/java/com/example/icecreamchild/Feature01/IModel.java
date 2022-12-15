@@ -15,6 +15,6 @@ public interface IModel {
         void onGettingNames(List<String> names);
     }
 
-    void getSelectedStationByName(IModel.OnFinishedListener onFinishedListener, String name);
+    void getSelectedStationByNameAndDate(IModel.OnFinishedListener onFinishedListener, String name, String date);
 
 }

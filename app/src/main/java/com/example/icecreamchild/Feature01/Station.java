@@ -15,6 +15,7 @@ public class Station {
     private String name;
     private String id;
     private  int Target;
+    private String date;
 
     public String getName() {
         return name;
@@ -32,6 +33,14 @@ public class Station {
         this.id = id;
     }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
     public int getTarget() {
         return Target;
     }
@@ -41,10 +50,11 @@ public class Station {
     }
 
 
-    public Station(String name, String id, int target) {
+    public Station(String name, String id, int target, String date) {
         this.name = name;
         this.id = id;
         this.Target = target;
+        this.date = date;
     }
 
 }

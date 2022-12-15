@@ -59,12 +59,12 @@ public class Presenter1 implements Ipresenter1,IModel.OnFinishedListener{
     }
 
     @Override
-    public void onStationSelected( String name ) {
+    public void onStationSelected( String name, String date ) {
 
         if(!name.equals("") && !name.isEmpty()){
 
 
-            imodel1.getSelectedStationByName(this,name);
+            imodel1.getSelectedStationByNameAndDate(this,name,date);
 
         }
 
@@ -77,13 +77,16 @@ public class Presenter1 implements Ipresenter1,IModel.OnFinishedListener{
 
 
     public void onFinished(Station station) {
-        if (iview1 != null) {
+        if (iview1 != null && station != null) {
 
 
             iview1.DisplayStationData(station.getId(),station.getTarget());
 
             //   mainView.setString(string);
           //  mainView.hideProgress();
+        }else{
+
+            iview1.displayErrorMessage();
         }
     }
 

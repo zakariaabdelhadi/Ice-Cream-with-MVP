@@ -11,7 +11,7 @@ public interface Ipresenter1 {
 
     void calculateVariance(int target, int actual);
 
-    void onStationSelected(String name);
+    void onStationSelected(String name, String date);
 
     void getStationNames();
 }
