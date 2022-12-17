@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements Iview1 {
         executeButton.setEnabled(false);
 
 
+        // kann in die presenterklasse gezogen werden
         setPresenter(new Presenter1(this, new ModelManager(this)));
         // ipresenter1.onViewCreated();
 

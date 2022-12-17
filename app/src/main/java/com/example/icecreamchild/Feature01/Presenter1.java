@@ -3,7 +3,7 @@ package com.example.icecreamchild.Feature01;
 
 import java.util.List;
 
-public class Presenter1 implements Ipresenter1,IModel.OnFinishedListener{
+public class Presenter1 implements Ipresenter1, Ipresenter1.OnFinishedListener {
 
 
     private static final int GREEN = 0;
@@ -32,7 +32,7 @@ public class Presenter1 implements Ipresenter1,IModel.OnFinishedListener{
     @Override
     public void onDestroy() {
 
-        this.iview1 = null ;
+        this.iview1 = null;
 
     }
 
@@ -42,29 +42,38 @@ public class Presenter1 implements Ipresenter1,IModel.OnFinishedListener{
         // load Station Data
 
 
-
     }
 
     @Override
     public void calculateVariance(int target, int actual) {
 
 
+        if ((target - actual) > 10) {
 
-        if  ((target - actual) > 10) iview1.setVarianceAndColor((target - actual), RED);
+            iview1.setVarianceAndColor((target - actual), RED);
 
-        if ((actual - target)  > 5) iview1.setVarianceAndColor((actual - target),GREEN);
 
-        if((target - actual) < 10  || (actual - target)  > 5) iview1.setVarianceAndColor((actual - target),BLUE);
+        } else if ((actual - target) > 5) {
+
+            iview1.setVarianceAndColor((actual - target), GREEN);
+
+
+        } else {
+
+            iview1.setVarianceAndColor((actual - target), BLUE);
+
+        }
+
 
     }
 
     @Override
-    public void onStationSelected( String name, String date ) {
+    public void onStationSelected(String name, String date) {
 
-        if(!name.equals("") && !name.isEmpty()){
+        if (!name.equals("") && !name.isEmpty()) {
 
 
-            imodel1.getSelectedStationByNameAndDate(this,name,date);
+            imodel1.getSelectedStationByNameAndDate(this, name, date);
 
         }
 
@@ -80,11 +89,11 @@ public class Presenter1 implements Ipresenter1,IModel.OnFinishedListener{
         if (iview1 != null && station != null) {
 
 
-            iview1.DisplayStationData(station.getId(),station.getTarget());
+            iview1.DisplayStationData(station.getId(), station.getTarget());
 
             //   mainView.setString(string);
-          //  mainView.hideProgress();
-        }else{
+            //  mainView.hideProgress();
+        } else {
 
             iview1.displayErrorMessage();
         }
