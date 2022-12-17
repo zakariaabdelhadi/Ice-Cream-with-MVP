@@ -17,6 +17,7 @@ public class Station {
     private  int Target;
     private String date;
 
+
     public String getName() {
         return name;
     }

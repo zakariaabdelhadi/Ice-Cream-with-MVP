@@ -116,7 +116,7 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
     }
 
     @Override
-    public void getStationNamesFromModel(final OnFinishedListener listener) {
+    public void getStationNamesFromModel(final Presenter1.OnFinishedListener listener) {
 
         List<String> names = new ArrayList<String>();
         names = getStationNames(names);
@@ -133,7 +133,7 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
     }
 
     @Override
-    public void getSelectedStationByNameAndDate(final OnFinishedListener listener, String name, String date) {
+    public void getSelectedStationByNameAndDate(final Ipresenter1.OnFinishedListener listener, String name, String date) {
 
         Station station = getStationByNameAndDate(name, date);
         new Handler().postDelayed(new Runnable() {
