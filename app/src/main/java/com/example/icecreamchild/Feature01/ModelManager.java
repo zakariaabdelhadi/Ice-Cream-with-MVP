@@ -29,7 +29,7 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
 
 
         String query = "create table Station ( id text primary key , name text,target integer,date text)";
-       // sqLiteDatabase.execSQL(query);
+        // sqLiteDatabase.execSQL(query);
 
         String query2 = "insert  into Station (id,name,target,date) values ('b70','BRB 14770',50,'01-01-2022') ";
         String query3 = "insert  into Station (id,name,target,date) values ('b72','BRB 14772',79,'01-02-2022') ";
@@ -79,13 +79,13 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
     public Station getStationByNameAndDate(String name, String date) {
 
         Station station = null;
-        String query = "select * from Station where name='" + name + "' and date = '"+date+"'";
+        String query = "select * from Station where name='" + name + "' and date = '" + date + "'";
         Cursor cursor = this.getReadableDatabase().rawQuery(query, null);
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
 
-            station = new Station(cursor.getString(1), cursor.getString(0), cursor.getInt(2),cursor.getString(3));
+            station = new Station(cursor.getString(1), cursor.getString(0), cursor.getInt(2), cursor.getString(3));
             cursor.moveToNext();
 
         }
@@ -95,17 +95,17 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
         return station;
     }
 
-    public List<String> getStationNames( List<String> names) {
+    public List<String> getStationNames(List<String> names) {
 
-       // List<String> names = new ArrayList<String>();
+        // List<String> names = new ArrayList<String>();
         String query = "select name from Station";
         Cursor cursor = this.getReadableDatabase().rawQuery(query, null);
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
 
-            names.add(cursor.getString(0) );
-          //  station = new Station(cursor.getString(1), cursor.getString(0), cursor.getInt(2));
+            names.add(cursor.getString(0));
+            //  station = new Station(cursor.getString(1), cursor.getString(0), cursor.getInt(2));
             cursor.moveToNext();
 
         }
@@ -114,6 +114,7 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
 
         return names;
     }
+
     @Override
     public void getStationNamesFromModel(final OnFinishedListener listener) {
 
@@ -129,14 +130,12 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
         }, 1200);
 
 
-
-
     }
 
     @Override
-    public void getSelectedStationByNameAndDate(final OnFinishedListener listener, String name,String date) {
+    public void getSelectedStationByNameAndDate(final OnFinishedListener listener, String name, String date) {
 
-        Station station = getStationByNameAndDate(name,date);
+        Station station = getStationByNameAndDate(name, date);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
