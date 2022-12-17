@@ -50,11 +50,21 @@ public class Presenter1 implements Ipresenter1,IModel.OnFinishedListener{
 
 
 
-        if  ((target - actual) > 10) iview1.setVarianceAndColor((target - actual), RED);
+        if  ((target - actual) > 10) {
+            iview1.setVarianceAndColor((target - actual), RED);
 
-        if ((actual - target)  > 5) iview1.setVarianceAndColor((actual - target),GREEN);
 
-        if((target - actual) < 10  || (actual - target)  > 5) iview1.setVarianceAndColor((actual - target),BLUE);
+        }else if ((actual - target)  > 5){
+
+            iview1.setVarianceAndColor((actual - target),GREEN);
+
+        }else {
+
+            iview1.setVarianceAndColor((actual - target),BLUE);
+        }
+
+
+
 
     }
 
