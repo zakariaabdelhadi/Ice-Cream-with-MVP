@@ -1,10 +1,17 @@
 
-package com.example.icecreamchild.Feature01;
+package com.example.icecreamchild.calculateVariation;
 
+import java.nio.charset.Charset;
 import java.util.List;
+import java.util.Random;
+
+import Utils.Utils;
+import entities.Station;
+
 
 public class Presenter1 implements Ipresenter1, Ipresenter1.OnFinishedListener {
 
+    public static int COUNTER = 2;
 
     private static final int GREEN = 0;
     private static final int RED = 1;
@@ -25,11 +32,6 @@ public class Presenter1 implements Ipresenter1, Ipresenter1.OnFinishedListener {
 
 
     @Override
-    public void setPresenter(Object presenter) {
-
-    }
-
-    @Override
     public void onDestroy() {
 
         this.iview1 = null;
@@ -41,6 +43,14 @@ public class Presenter1 implements Ipresenter1, Ipresenter1.OnFinishedListener {
 
         // load Station Data
 
+
+    }
+
+    @Override
+    public void addStation() {
+        Station station = new Station("Station " + COUNTER, "ID " + COUNTER, 80, "4-1-2022");
+        COUNTER++;
+        imodel1.addStationInDB(this,station);
 
     }
 
@@ -102,6 +112,11 @@ public class Presenter1 implements Ipresenter1, Ipresenter1.OnFinishedListener {
     @Override
     public void onGettingNames(List<String> names) {
         iview1.intializeStationslist(names);
+
+    }
+
+    @Override
+    public void onAddStationFinished() {
 
     }
 

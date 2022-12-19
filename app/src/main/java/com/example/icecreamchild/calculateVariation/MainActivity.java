@@ -1,4 +1,4 @@
-package com.example.icecreamchild.Feature01;
+package com.example.icecreamchild.calculateVariation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,6 @@ import com.example.icecreamchild.R;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -46,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements Iview1 {
 
 
     private Button executeButton;
+    private Button addStationButton;
 
 
     @Override
@@ -61,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements Iview1 {
 
         executeButton = findViewById(R.id.execute_button);
         executeButton.setEnabled(false);
+        addStationButton = findViewById(R.id.addStationButton);
 
 
         // kann in die presenterklasse gezogen werden
@@ -152,7 +152,19 @@ public class MainActivity extends AppCompatActivity implements Iview1 {
         });
 
 
+        addStationButton.setOnClickListener(
+                v -> {
+
+
+
+                    ipresenter1.addStation();
+                }
+
+        );
+
     }
+
+
 
     private void clearCurrentScreen() {
 
@@ -287,4 +299,6 @@ public class MainActivity extends AppCompatActivity implements Iview1 {
         super.onDestroy();
 
     }
+
+
 }

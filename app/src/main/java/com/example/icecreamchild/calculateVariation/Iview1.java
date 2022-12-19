@@ -1,11 +1,12 @@
-package com.example.icecreamchild.Feature01;
+package com.example.icecreamchild.calculateVariation;
 
 import java.util.List;
 
-public interface Iview1 {
+import GeneralInterfaces.IViewGeneral;
+
+public interface Iview1 extends IViewGeneral {
 
 
-    void setPresenter(Ipresenter1 presenter);
 
     void DisplayStationData(String StationID, int target);
 

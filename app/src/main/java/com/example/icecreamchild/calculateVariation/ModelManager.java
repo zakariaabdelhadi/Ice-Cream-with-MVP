@@ -1,16 +1,17 @@
-package com.example.icecreamchild.Feature01;
+package com.example.icecreamchild.calculateVariation;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import entities.Station;
 
 public class ModelManager extends SQLiteOpenHelper implements IModel {
 
@@ -75,6 +76,7 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
 
 
     }
+
 
     public Station getStationByNameAndDate(String name, String date) {
 
@@ -142,6 +144,30 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
                 listener.onFinished(station);
             }
         }, 1200);
+
+
+    }
+
+    @Override
+    public void addStationInDB(final Presenter1.OnFinishedListener listener, Station station) {
+
+        String query= "insert  into Station (id,name,target,date) values ('"+station.getId()+"','"+station.getName()+"',"+station.getTarget()+",'"+station.getDate()+"') ";
+        this.getWritableDatabase().execSQL(query);
+
+        List<String> names = new ArrayList<String>();
+        names = getStationNames(names);
+
+        List<String> finalNames = names;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                listener.onGettingNames(finalNames);
+            }
+        }, 1200);
+
+
+
+
 
 
     }

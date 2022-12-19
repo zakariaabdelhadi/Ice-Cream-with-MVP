@@ -1,13 +1,4 @@
-package com.example.icecreamchild.Feature01;
-
-import android.content.Context;
-import android.database.Cursor;
-import android.os.Handler;
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package entities;
 
 public class Station {
 

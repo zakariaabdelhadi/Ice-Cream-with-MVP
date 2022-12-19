@@ -1,9 +1,12 @@
-package com.example.icecreamchild.Feature01;
+package com.example.icecreamchild.calculateVariation;
 
 
 import java.util.List;
 
-public interface Ipresenter1 {
+import GeneralInterfaces.IPresenterGeneral;
+import entities.Station;
+
+public interface Ipresenter1 extends IPresenterGeneral {
 
     interface OnFinishedListener  {
         // function to be called
@@ -11,14 +14,14 @@ public interface Ipresenter1 {
         // completes its execution
         void onFinished(Station station);
         void onGettingNames(List<String> names);
+        void onAddStationFinished();
     }
 
-    void setPresenter(Object presenter);
+   // void setPresenter(Object presenter);
 
-    void onDestroy();
 
-    void onViewCreated();
 
+    void  addStation();
     void calculateVariance(int target, int actual);
 
     void onStationSelected(String name, String date);
