@@ -18,7 +18,6 @@ public class ModelManager extends SQLiteOpenHelper implements IModel {
     private static final String DB_Name = "stations";
     private static final int VERSION = 3;
 
-    Ipresenter1 ipresenter1;
 
 
     public ModelManager(@Nullable Context context) {
